@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Muhammad Talha | AI / ML Engineer</title>
+    <meta name="description"
+        content="Portfolio of Muhammad Talha, AI/ML engineer building LLM agents, RAG systems and computer-vision pipelines.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <style>
+        :root {
+            --bg: #f4f7fc;
+            --surface: #fff;
+            --ink: #12203b;
+            --muted: #54627d;
+            --line: #dbe3f0;
+            --accent: #1a4fa3;
+            --hi: #0f8f9c;
+            --chip: #e7eefa;
+            --shadow: 0 8px 28px rgba(18, 32, 59, .08)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root {
+                --bg: #0b1324;
+                --surface: #131e36;
+                --ink: #e8edf7;
+                --muted: #9aa8c3;
+                --line: #24324d;
+                --accent: #8fb4f0;
+                --hi: #4cc3cf;
+                --chip: #1b2947;
+                --shadow: 0 8px 28px rgba(0, 0, 0, .35)
+            }
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 72px
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font: 16px/1.65 "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom)
+        }
+
+        a {
+            color: var(--accent)
+        }
+
+        a:focus-visible,
+        .btn:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--hi);
+            outline-offset: 3px
+        }
+
+        .wrap {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 22px
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: color-mix(in srgb, var(--bg) 90%, transparent);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+            z-index: 5
+        }
+
+        nav .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            gap: 16px
+        }
+
+        nav b {
+            font-weight: 800;
+            font-size: 1.05rem
+        }
+
+        nav ul {
+            display: flex;
+            gap: 6px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        nav li a {
+            display: block;
+            padding: 7px 13px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        nav li a:hover {
+            background: var(--chip);
+            color: var(--ink)
+        }
+
+        .hero {
+            padding: 70px 0 54px;
+            background: radial-gradient(900px 400px at 85% -10%, color-mix(in srgb, var(--hi) 20%, transparent), transparent), radial-gradient(700px 360px at 0% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent)
+        }
+
+        .hgrid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #2fbf71
+        }
+
+        h1 {
+            font-size: clamp(2.3rem, 6vw, 3.9rem);
+            line-height: 1.06;
+            margin: 0 0 18px;
+            letter-spacing: -.03em;
+            font-weight: 800
+        }
+
+        h1 em {
+            font-style: normal;
+            background: linear-gradient(90deg, var(--accent), var(--hi));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .lead {
+            font-size: 1.12rem;
+            color: var(--muted);
+            max-width: 36em;
+            margin: 0 0 26px
+        }
+
+        .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 22px
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            transition: transform .15s
+        }
+
+        .btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .btn.p {
+            background: var(--accent);
+            color: var(--bg)
+        }
+
+        .btn.s {
+            color: var(--accent);
+            background: var(--surface)
+        }
+
+        .soc {
+            display: flex;
+            gap: 18px;
+            font-weight: 700;
+            font-size: 15px
+        }
+
+        .avatar {
+            justify-self: center;
+            width: min(300px, 70vw);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            padding: 7px;
+            background: linear-gradient(135deg, var(--accent), var(--hi));
+            box-shadow: var(--shadow);
+            display: grid
+        }
+
+        .avatar>* {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--surface)
+        }
+
+        .ini {
+            display: grid;
+            place-items: center;
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--accent)
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 18px;
+            margin-top: 46px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--surface);
+            box-shadow: var(--shadow)
+        }
+
+        .flow .n {
+            padding: 8px 13px;
+            border-radius: 9px;
+            background: var(--chip);
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        .flow .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .flow .n.hi {
+            background: var(--hi);
+            color: #fff
+        }
+
+        .flow i {
+            color: var(--muted);
+            font-style: normal;
+            font-weight: 700
+        }
+
+        .cap {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 10px 2px 0
+        }
+
+        section {
+            padding: 60px 0
+        }
+
+        section.alt {
+            background: color-mix(in srgb, var(--surface) 70%, var(--bg))
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin: 0 0 8px;
+            letter-spacing: -.02em
+        }
+
+        .sub {
+            color: var(--muted);
+            margin: 0 0 30px;
+            max-width: 40em
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 34px
+        }
+
+        .facts {
+            display: grid;
+            gap: 12px;
+            align-content: start
+        }
+
+        .fact {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px 18px
+        }
+
+        .fact b {
+            display: block;
+            font-size: 1.7rem;
+            color: var(--accent);
+            line-height: 1.1
+        }
+
+        .fact span {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 22px
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s
+        }
+
+        .card:hover {
+            transform: translateY(-4px)
+        }
+
+        .art {
+            height: 130px;
+            display: grid;
+            place-items: center;
+            font-size: 3.4rem;
+            background: linear-gradient(135deg, var(--c1), var(--c2))
+        }
+
+        .body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.12rem
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 4px
+        }
+
+        .tags span,
+        .chips span {
+            background: var(--chip);
+            padding: 4px 11px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600
+        }
+
+        .code {
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 15px
+        }
+
+        .tl {
+            border-left: 2px solid var(--line);
+            padding-left: 24px;
+            margin-left: 6px
+        }
+
+        .job {
+            position: relative;
+            margin-bottom: 30px
+        }
+
+        .job:before {
+            content: "";
+            position: absolute;
+            left: -32px;
+            top: 7px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--hi);
+            border: 3px solid var(--bg)
+        }
+
+        .job h3 {
+            margin: 0;
+            font-size: 1.12rem
+        }
+
+        .job .m {
+            color: var(--muted);
+            font-size: 14px;
+            margin: 2px 0 10px
+        }
+
+        .job ul {
+            margin: 0;
+            padding-left: 1.2em
+        }
+
+        .job li {
+            margin-bottom: 6px
+        }
+
+        .sk {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px
+        }
+
+        .sk div {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px
+        }
+
+        .sk h3 {
+            margin: 0 0 12px;
+            font-size: 1rem
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .cgrid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 34px
+        }
+
+        .cl a {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-decoration: none
+        }
+
+        form {
+            display: grid;
+            gap: 12px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: var(--shadow)
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 14px;
+            display: grid;
+            gap: 5px
+        }
+
+        input,
+        textarea {
+            font: inherit;
+            color: var(--ink);
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            padding: 10px 12px;
+            width: 100%
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer
+        }
+
+        footer {
+            padding: 28px 0 40px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        @media (max-width:760px) {
+
+            .hgrid,
+            .about,
+            .cgrid {
+                grid-template-columns: 1fr
+            }
+
+            .avatar {
+                order: -1;
+                width: 200px
+            }
+
+            .hero {
+                padding-top: 40px
+            }
+
+            nav ul {
+                display: none
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            .card,
+            .btn {
+                transition: none
+            }
+        }
+
+        /* ---- motion layer ---- */
+        #bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--hi));
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            z-index: 20
+        }
+
+        nav li a {
+            transition: background .2s, color .2s
+        }
+
+        nav li a.act {
+            background: var(--chip);
+            color: var(--ink)
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero .wrap {
+            position: relative;
+            z-index: 1
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: .35;
+            z-index: 0;
+            animation: drift 14s ease-in-out infinite alternate
+        }
+
+        .b1 {
+            width: 340px;
+            height: 340px;
+            background: var(--hi);
+            top: -80px;
+            right: 6%
+        }
+
+        .b2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            bottom: -90px;
+            left: 4%;
+            animation-delay: -6s
+        }
+
+        @keyframes drift {
+            to {
+                transform: translate(40px, 30px) scale(1.15)
+            }
+        }
+
+        .avatar {
+            animation: bob 6s ease-in-out infinite;
+            position: relative
+        }
+
+        .avatar:after {
+            content: "";
+            position: absolute;
+            inset: -14px;
+            border-radius: 50%;
+            border: 2px dashed var(--hi);
+            opacity: .5;
+            animation: spin 24s linear infinite
+        }
+
+        @keyframes bob {
+            50% {
+                transform: translateY(-12px)
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .typed {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin: -4px 0 14px;
+            min-height: 1.7em
+        }
+
+        .caret {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: var(--hi);
+            margin-left: 3px;
+            vertical-align: -3px;
+            animation: blink 1s steps(1) infinite
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0
+            }
+        }
+
+        .dot {
+            animation: ping 2s infinite
+        }
+
+        @keyframes ping {
+            0% {
+                box-shadow: 0 0 0 0 rgba(47, 191, 113, .6)
+            }
+
+            100% {
+                box-shadow: 0 0 0 10px rgba(47, 191, 113, 0)
+            }
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden
+        }
+
+        .btn:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .35), transparent);
+            transform: skewX(-20deg);
+            transition: left .6s
+        }
+
+        .btn:hover:after {
+            left: 130%
+        }
+
+        .flow .n {
+            animation: node 5s ease-in-out infinite;
+            animation-delay: var(--nd, 0s)
+        }
+
+        @keyframes node {
+
+            0%,
+            22%,
+            100% {
+                box-shadow: 0 0 0 0 transparent
+            }
+
+            10% {
+                box-shadow: 0 0 0 4px color-mix(in srgb, var(--hi) 45%, transparent);
+                transform: translateY(-3px)
+            }
+        }
+
+        .flow i {
+            animation: nudge 1.6s ease-in-out infinite
+        }
+
+        @keyframes nudge {
+            50% {
+                transform: translateX(5px)
+            }
+        }
+
+        h2 {
+            position: relative;
+            padding-bottom: 12px
+        }
+
+        h2:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 4px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--hi));
+            transition: width .9s .2s
+        }
+
+        h2.in:after {
+            width: 64px
+        }
+
+        .art {
+            position: relative;
+            overflow: hidden;
+            background-size: 160% 160%;
+            animation: sheen 8s ease-in-out infinite alternate
+        }
+
+        @keyframes sheen {
+            to {
+                background-position: 100% 100%
+            }
+        }
+
+        .art span {
+            display: inline-block;
+            animation: bob 4s ease-in-out infinite
+        }
+
+        .card.in:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(18, 32, 59, .18)
+        }
+
+        .card.in:hover .art span {
+            animation-duration: 1.4s
+        }
+
+        .tags span,
+        .chips span {
+            transition: transform .2s, background .2s, color .2s
+        }
+
+        .tags span:hover,
+        .chips span:hover {
+            transform: translateY(-2px);
+            background: var(--accent);
+            color: var(--bg)
+        }
+
+        .fact {
+            transition: transform .2s, border-color .2s
+        }
+
+        .fact:hover {
+            transform: translateX(6px);
+            border-color: var(--hi)
+        }
+
+        .job:before {
+            animation: ping 2.4s infinite;
+            box-shadow: 0 0 0 0 color-mix(in srgb, var(--hi) 60%, transparent)
+        }
+
+        .tl {
+            background: linear-gradient(var(--hi), var(--hi)) no-repeat -2px 0/2px var(--tl, 0%);
+            border-left: 2px solid var(--line)
+        }
+
+        .js .rv {
+            opacity: 0
+        }
+
+        .js .rv.in {
+            opacity: 1;
+            animation: rise .8s cubic-bezier(.2, .7, .2, 1) backwards;
+            animation-delay: var(--d, 0s)
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(28px)
+            }
+        }
+
+        #top {
+            position: fixed;
+            right: 20px;
+            bottom: calc(20px + env(safe-area-inset-bottom));
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 0;
+            background: var(--accent);
+            color: var(--bg);
+            font-size: 1.2rem;
+            font-weight: 800;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity .3s, transform .3s;
+            z-index: 10
+        }
+
+        #top.show {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            *,
+            *:before,
+            *:after {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .js .rv {
+                opacity: 1
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            text-decoration: none;
+            color: var(--ink)
+        }
+
+        .mono {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--accent), var(--hi));
+            color: #fff;
+            font-weight: 800;
+            font-size: .95rem;
+            letter-spacing: .02em;
+            box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 35%, transparent);
+            transition: transform .35s
+        }
+
+        .logo:hover .mono {
+            transform: rotate(-8deg) scale(1.08)
+        }
+
+        .nm {
+            display: flex;
+            flex-direction: column;
+            font-weight: 800;
+            font-size: 1.02rem;
+            line-height: 1.15;
+            letter-spacing: -.01em
+        }
+
+        .nm small {
+            font-weight: 600;
+            font-size: .72rem;
+            color: var(--muted);
+            letter-spacing: .01em
+        }
+
+        @media (max-width:420px) {
+            .nm small {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bar"></div>
+    <nav>
+        <div class="wrap"><a class="logo" href="#" aria-label="Muhammad Talha, back to top"><span
+                    class="mono">MT</span><span class="nm">Muhammad Talha<small>AI / ML Engineer</small></span></a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="wrap">
+            <div class="hgrid">
+                <div>
+                    <span class="pill"><span class="dot"></span>AI Intern at APPINSNAP</span>
+                    <h1>Hi, I'm Muhammad Talha, I build <em>practical AI systems</em></h1>
+                    <p class="typed" aria-live="off">I work on <span id="ty">LLM agents</span><span
+                            class="caret"></span></p>
+                    <p class="lead">AI/ML engineer focused on LLM agents, retrieval-augmented generation and computer
+                        vision. I take ideas from research and model comparison to working, testable applications.</p>
+                    <div class="btns"><a class="btn p" href="#projects">View my work</a><a class="btn s"
+                            href="Muhammad_Talha_CV.pdf" download>Download CV</a></div>
+                    <div class="soc"><a href="https://github.com/MuhammadTalha752">GitHub</a><a
+                            href="https://www.linkedin.com/in/muhammad-talha-765b213a4/">LinkedIn</a><a
+                            href="mailto:talha987987@gmail.com">Email</a></div>
+                </div>
+                <div class="avatar"><img src="profile.jpeg" alt="Muhammad Talha"
+                        onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'MT',className:'ini'}))">
+                </div>
+            </div>
+            <div class="flow" role="img"
+                aria-label="Retrieval pipeline: user question goes to BM25 and Qdrant vector search, results merge with Reciprocal Rank Fusion, then the LLM writes the answer">
+                <span class="n">User question</span><i>&gt;</i>
+                <span class="stack"><span class="n">BM25 keyword search</span><span class="n">Qdrant vector
+                        search</span></span><i>&gt;</i>
+                <span class="n hi">Reciprocal Rank Fusion</span><i>&gt;</i><span class="n">LLM answer</span>
+            </div>
+            <p class="cap">The retrieval flow behind my LangChain customer-support agent.</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="wrap">
+            <h2>About me</h2>
+            <p class="sub">Computer Science graduate (KICSIT, IST Sub-Campus) working on applied AI.</p>
+            <div class="about">
+                <p>I build LLM-powered support agents with hybrid retrieval, computer-vision pipelines that read ID
+                    documents, and a Transformer written from scratch to understand attention at a low level. I also
+                    compare open-source speech models for natural Urdu and English. Before AI, I worked on mobile apps
+                    with React Native and Android, so I enjoy connecting models to products people can actually use.</p>
+                <div class="facts">
+                    <div class="fact"><b data-n="6">0</b><span>AI and ML projects</span></div>
+                    <div class="fact"><b data-n="2">0</b><span>Internships: AI/ML and React Native</span></div>
+                    <div class="fact"><b data-n="3">0</b><span>Languages: English, Urdu, Punjabi</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="alt">
+        <div class="wrap">
+            <h2>Featured projects</h2>
+            <p class="sub">Things I've built, from retrieval agents to document vision and speech research.</p>
+            <div class="grid">
+
+                <article class="card">
+                    <div class="art" style="--c1:#1a4fa3;--c2:#0f8f9c"><span>🔎</span></div>
+                    <div class="body">
+                        <h3>Customer support agent with hybrid RAG</h3>
+                        <p>LangChain agent that answers from a knowledge base by combining keyword and semantic search,
+                            and remembers each user's conversation across sessions.</p>
+                        <a class="code"
+                            href="https://github.com/MuhammadTalha752/Customer-support-agent-using-Langchain">View
+                            code</a>
+                        <div class="tags">
+                            <span>LangChain</span><span>Qdrant</span><span>BM25</span><span>all-MiniLM-L6-v2</span><span>gpt-oss-120b</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="art" style="--c1:#5b3fb0;--c2:#2a7bd1"><span>🤖</span></div>
+                    <div class="body">
+                        <h3>Support agent built without a framework</h3>
+                        <p>The first version, written by hand. Sorts each message into an intent (register or check a
+                            complaint, customer complaints, FAQ, unknown) with data in SQLite, later extended with
+                            banking intents.</p>
+                        <div class="tags"><span>Python</span><span>Groq</span><span>Llama 3.1 8B
+                                Instant</span><span>SQLite</span></div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="art" style="--c1:#0b6e5a;--c2:#3aa76d"><span>🪪</span></div>
+                    <div class="body">
+                        <h3>CNIC detection and extraction</h3>
+                        <p>Finds a Pakistani CNIC in a photo, crops and straightens it, then reads name, father's name,
+                            CNIC number, gender, country, dates and signature. Rejects cards, receipts and newspapers.
+                        </p>
+                        <div class="tags"><span>YOLO</span><span>OpenCV</span><span>EasyOCR</span><span>Python</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="art" style="--c1:#7a3b8f;--c2:#d1568b"><span>🧠</span></div>
+                    <div class="body">
+                        <h3>Transformer from scratch</h3>
+                        <p>Embeddings, positional encoding, multi-head self-attention, feed-forward layers, residuals
+                            and layer norm built by hand, without <code>torch.nn.Transformer</code>, then trained to
+                            generate Shakespeare-style text.</p>
+                        <div class="tags"><span>PyTorch</span><span>Python</span><span>NLP</span></div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="art" style="--c1:#b8612a;--c2:#d1a02a"><span>🔊</span></div>
+                    <div class="body">
+                        <h3>Urdu and English TTS research</h3>
+                        <p>Compared open-source TTS models on a 10-message test set for natural Urdu and English,
+                            Pakistani names, finance terms, speed and local GPU needs.</p>
+                        <div class="tags"><span>Chatterbox</span><span>Indic Parler-TTS</span><span>Evaluation</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="art" style="--c1:#a32a3b;--c2:#d1566b"><span>🩺</span></div>
+                    <div class="body">
+                        <h3>KidneyCare: CKD detection (final year project)</h3>
+                        <p>Android app connected to a machine learning model that predicts Chronic Kidney Disease from
+                            patient data, with preprocessing and real-time health insights.</p>
+                        <div class="tags"><span>Java</span><span>Android</span><span>Machine learning</span></div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="wrap">
+            <h2>Experience and education</h2>
+            <p class="sub">Where I've worked and studied.</p>
+            <div class="tl">
+                <div class="job">
+                    <h3>AI / Machine Learning Intern, APPINSNAP</h3>
+                    <p class="m">July 2026 to present</p>
+                    <ul>
+                        <li>Built customer-support agents, first by hand and then with LangChain and hybrid retrieval,
+                            including per-user memory.</li>
+                        <li>Developed a CNIC detection and extraction pipeline and tested it on non-CNIC documents.</li>
+                        <li>Implemented a Transformer from scratch to understand attention models at a low level.</li>
+                        <li>Benchmarked Urdu and English TTS models for pronunciation, prosody, speed and GPU needs.
+                        </li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3>React Native Mobile App Developer (Intern), United Sol</h3>
+                    <p class="m">June 2025 to July 2025</p>
+                    <ul>
+                        <li>Built cross-platform app screens and reusable UI components with React Native and
+                            JavaScript.</li>
+                        <li>Worked in a team with Git and improved code based on review feedback.</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3>BS Computer Science, KICSIT (IST Sub-Campus)</h3>
+                    <p class="m">2022 to 2026, GPA 3.24 / 4.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="alt">
+        <div class="wrap">
+            <h2>Tools and technologies</h2>
+            <p class="sub">What I work with.</p>
+            <div class="sk">
+                <div>
+                    <h3>AI and machine learning</h3>
+                    <div class="chips"><span>Transformers</span><span>NLP</span><span>LLM agents</span><span>Prompt
+                            engineering</span><span>RAG</span><span>Hybrid search</span><span>Reciprocal Rank
+                            Fusion</span></div>
+                </div>
+                <div>
+                    <h3>Libraries and models</h3>
+                    <div class="chips">
+                        <span>PyTorch</span><span>LangChain</span><span>Sentence-Transformers</span><span>Scikit-learn</span><span>Groq</span><span>Llama
+                            3.1</span></div>
+                </div>
+                <div>
+                    <h3>Computer vision</h3>
+                    <div class="chips"><span>YOLO</span><span>OpenCV</span><span>EasyOCR</span></div>
+                </div>
+                <div>
+                    <h3>Languages and data</h3>
+                    <div class="chips">
+                        <span>Python</span><span>Java</span><span>C++</span><span>JavaScript</span><span>SQL</span><span>SQLite</span><span>Qdrant</span>
+                    </div>
+                </div>
+                <div>
+                    <h3>Mobile and tools</h3>
+                    <div class="chips"><span>React Native</span><span>Android</span><span>Git</span><span>GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="wrap">
+            <h2>Get in touch</h2>
+            <p class="sub">I'm open to AI/ML engineering roles and internships.</p>
+            <div class="cgrid">
+                <div class="cl"><a href="mailto:talha987987@gmail.com">talha987987@gmail.com</a><a
+                        href="tel:+923185026530">+92 318 5026530</a><a
+                        href="https://www.linkedin.com/in/muhammad-talha-765b213a4/">LinkedIn</a><a
+                        href="https://github.com/MuhammadTalha752">GitHub</a>
+                    <p style="color:var(--muted)">Kahuta, Rawalpindi, Pakistan</p>
+                </div>
+                <form id="f"><label>Name<input id="n" required></label><label>Email<input id="e" type="email"
+                            required></label><label>Message<textarea id="m" required></textarea></label>
+                    <button class="btn p" type="submit">Send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <button id="top" aria-label="Back to top">&#8593;</button>
+    <footer>
+        <div class="wrap"><span>© 2026 Muhammad Talha</span><span>Built with HTML and CSS</span></div>
+    </footer>
+    <script>
+        document.getElementById('f').addEventListener('submit', function (x) {
+            x.preventDefault();
+            var s = encodeURIComponent('Portfolio message from ' + n.value), b = encodeURIComponent(m.value + '\n\nFrom: ' + n.value + ' (' + e.value + ')');
+            location.href = 'mailto:talha987987@gmail.com?subject=' + s + '&body=' + b;
+        });
+
+        (function () {
+            var d = document, rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
+            if (!rm) d.documentElement.classList.add('js');
+            var $ = function (q) { return [].slice.call(d.querySelectorAll(q)) };
+            /* scroll reveal with stagger */
+            $('section h2,.sub,.about>p,.fact,.card,.job,.sk>div,.cgrid>*,.flow').forEach(function (el) { el.classList.add('rv') });
+            $('.grid,.facts,.sk,.tl').forEach(function (g) { [].slice.call(g.children).forEach(function (c, i) { c.style.setProperty('--d', (i * .09) + 's') }) });
+            var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); if (e.target.classList.contains('fact')) count(e.target.querySelector('b')) } }) }, { threshold: .15 });
+            $('.rv').forEach(function (el) { rm ? el.classList.add('in') : io.observe(el) });
+            $('h2').forEach(function (h) { h.classList.contains('in') || io.observe(h) });
+            /* counters */
+            function count(b) { var t = +b.dataset.n; if (rm) { b.textContent = t; return } var i = 0, k = setInterval(function () { b.textContent = ++i; if (i >= t) clearInterval(k) }, 180) }
+            if (rm) $('.fact b').forEach(count);
+            /* pipeline glow delays */
+            $('.flow .n').forEach(function (n, i) { n.style.setProperty('--nd', (i * .7) + 's') });
+            /* typing effect */
+            var words = ['LLM agents', 'RAG systems', 'computer vision', 'Urdu speech models', 'Transformers'], w = 0, c = 0, del = false, ty = d.getElementById('ty');
+            if (!rm) (function tick() {
+                var s = words[w]; c += del ? -1 : 1; ty.textContent = s.slice(0, c);
+                var t = del ? 35 : 75; if (!del && c === s.length) { del = true; t = 1500 } else if (del && c === 0) { del = false; w = (w + 1) % words.length; t = 350 } setTimeout(tick, t)
+            })();
+            /* progress bar, back-to-top, scroll-linked timeline */
+            var bar = d.getElementById('bar'), top = d.getElementById('top'), tl = d.querySelector('.tl');
+            function onScroll() {
+                var h = d.documentElement, m = h.scrollHeight - h.clientHeight; bar.style.transform = 'scaleX(' + (m ? h.scrollTop / m : 0) + ')';
+                top.classList.toggle('show', h.scrollTop > 600);
+                if (tl) { var r = tl.getBoundingClientRect(), p = (innerHeight * .7 - r.top) / r.height; tl.style.setProperty('--tl', Math.max(0, Math.min(1, p)) * 100 + '%') }
+            }
+            addEventListener('scroll', onScroll, { passive: true }); onScroll();
+            top.onclick = function () { scrollTo({ top: 0, behavior: rm ? 'auto' : 'smooth' }) };
+            /* active nav link */
+            var links = $('nav li a'), so = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('act', a.getAttribute('href') === '#' + e.target.id) }) }) }, { rootMargin: '-45% 0px -50% 0px' });
+            $('section[id]').forEach(function (s) { so.observe(s) });
+            /* card tilt */
+            if (!rm && matchMedia('(hover:hover)').matches) $('.card').forEach(function (cd) {
+                cd.addEventListener('mousemove', function (e) {
+                    var r = cd.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+                    cd.style.transform = 'perspective(800px) rotateX(' + (-y * 7) + 'deg) rotateY(' + (x * 9) + 'deg) translateY(-6px)'
+                });
+                cd.addEventListener('mouseleave', function () { cd.style.transform = '' })
+            });
+        })();
+    </script>
+</body>
+
+</html>
